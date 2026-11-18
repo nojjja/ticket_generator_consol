@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="300" viewBox="0 0 920 300" role="img" aria-labelledby="title description">
+  <title id="title">SOLID component architecture</title>
+  <desc id="description">Application flow depends on abstractions for input, ticket generation, and journal storage.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <style>
+    .app { fill:#dcfce7; stroke:#16a34a; stroke-width:2; rx:12; }
+    .abstraction { fill:#eff6ff; stroke:#2563eb; stroke-width:2; rx:12; }
+    .implementation { fill:#fff7ed; stroke:#ea580c; stroke-width:2; rx:12; }
+    .text { fill:#0f172a; font:17px Arial, sans-serif; text-anchor:middle; }
+    .small { fill:#475569; font:15px Arial, sans-serif; text-anchor:middle; }
+    .arrow { stroke:#64748b; stroke-width:2; fill:none; marker-end:url(#arrow); }
+  </style>
+  <rect class="app" x="360" y="25" width="200" height="70"/>
+  <text class="text" x="460" y="55">TicketApplication</text>
+  <text class="small" x="460" y="80">application workflow</text>
+  <rect class="abstraction" x="40" y="145" width="220" height="70"/>
+  <text class="text" x="150" y="175">LineInput</text>
+  <text class="small" x="150" y="200">prompt / read_key</text>
+  <rect class="abstraction" x="350" y="145" width="220" height="70"/>
+  <text class="text" x="460" y="175">TicketGenerator</text>
+  <text class="small" x="460" y="200">generate</text>
+  <rect class="abstraction" x="660" y="145" width="220" height="70"/>
+  <text class="text" x="770" y="175">JournalRepository</text>
+  <text class="small" x="770" y="200">append</text>
+  <line class="arrow" x1="390" y1="95" x2="180" y2="145"/>
+  <line class="arrow" x1="460" y1="95" x2="460" y2="145"/>
+  <line class="arrow" x1="530" y1="95" x2="740" y2="145"/>
+  <rect class="implementation" x="40" y="250" width="220" height="35"/>
+  <text class="text" x="150" y="273">ConsoleLineInput</text>
+  <rect class="implementation" x="350" y="250" width="220" height="35"/>
+  <text class="text" x="460" y="273">RandomTicketGenerator</text>
+  <rect class="implementation" x="660" y="250" width="220" height="35"/>
+  <text class="text" x="770" y="273">ExcelJournalRepository</text>
+  <line class="arrow" x1="150" y1="250" x2="150" y2="215"/>
+  <line class="arrow" x1="460" y1="250" x2="460" y2="215"/>
+  <line class="arrow" x1="770" y1="250" x2="770" y2="215"/>
+</svg>

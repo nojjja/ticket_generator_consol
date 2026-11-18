@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="220" viewBox="0 0 920 220" role="img" aria-labelledby="title description">
+  <title id="title">Exam Ticket Generator workflow</title>
+  <desc id="description">The application reads two names, generates a ticket, saves the Excel record, and displays the ticket.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <style>
+    .box { fill:#eff6ff; stroke:#2563eb; stroke-width:2; rx:12; }
+    .text { fill:#0f172a; font:18px Arial, sans-serif; text-anchor:middle; }
+    .arrow { stroke:#64748b; stroke-width:2; fill:none; marker-end:url(#arrow); }
+  </style>
+  <rect class="box" x="20" y="70" width="150" height="80"/>
+  <text class="text" x="95" y="105">Enter last name</text>
+  <text class="text" x="95" y="130">and first name</text>
+  <line class="arrow" x1="170" y1="110" x2="205" y2="110"/>
+  <rect class="box" x="205" y="70" width="150" height="80"/>
+  <text class="text" x="280" y="105">Generate ticket</text>
+  <text class="text" x="280" y="130">number 1–20</text>
+  <line class="arrow" x1="355" y1="110" x2="390" y2="110"/>
+  <rect class="box" x="390" y="70" width="150" height="80"/>
+  <text class="text" x="465" y="105">Create record</text>
+  <text class="text" x="465" y="130">with date/time</text>
+  <line class="arrow" x1="540" y1="110" x2="575" y2="110"/>
+  <rect class="box" x="575" y="70" width="150" height="80"/>
+  <text class="text" x="650" y="105">Append to</text>
+  <text class="text" x="650" y="130">journal.xlsx</text>
+  <line class="arrow" x1="725" y1="110" x2="760" y2="110"/>
+  <rect class="box" x="760" y="70" width="140" height="80"/>
+  <text class="text" x="830" y="105">Display assigned</text>
+  <text class="text" x="830" y="130">ticket</text>
+</svg>
