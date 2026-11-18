@@ -5,6 +5,7 @@ from datetime import datetime
 from pathlib import Path
 import random
 import sys
+import unicodedata
 from zipfile import BadZipFile
 
 from openpyxl import Workbook, load_workbook
@@ -14,6 +15,33 @@ from openpyxl.utils.exceptions import InvalidFileException
 JOURNAL = Path(__file__).with_name("journal.xlsx")
 HEADERS = ("Last name", "First name", "Номер билета", "Дата и время")
 ESC = "\x1b"
+NAME_MAX_LENGTH = 100
+NAME_SEPARATORS = (" ", "-", "'")
+
+
+def validate_name(value: str) -> str | None:
+    value = value.strip()
+    if not value:
+        return "Name cannot be empty."
+    if len(value) > NAME_MAX_LENGTH:
+        return f"Name must contain no more than {NAME_MAX_LENGTH} characters."
+    if not any(unicodedata.category(character).startswith("L") for character in value):
+        return "Name must contain letters."
+    if any(
+        unicodedata.category(character).startswith("N")
+        or unicodedata.category(character).startswith("P")
+        and character not in NAME_SEPARATORS
+        or unicodedata.category(character).startswith("S")
+        or unicodedata.category(character).startswith("C")
+        for character in value
+    ):
+        return "Name may contain only letters, spaces, hyphens, and apostrophes."
+    if value[0] in NAME_SEPARATORS or value[-1] in NAME_SEPARATORS:
+        return "Name must start and end with a letter."
+    if any(value[index] in NAME_SEPARATORS and value[index + 1] in NAME_SEPARATORS
+           for index in range(len(value) - 1)):
+        return "Use only one separator between letters."
+    return None
 
 
 class TicketGenerator(ABC):
@@ -125,8 +153,12 @@ class ConsoleLineInput(LineInput):
 
             value = value.strip()
             if value:
-                return value
-            print("Поле не может быть пустым. Повторите ввод.")
+                error = validate_name(value)
+                if error is None:
+                    return value
+                print(error)
+                continue
+            print("Field cannot be empty. Please try again.")
 
 
 class TicketApplication:

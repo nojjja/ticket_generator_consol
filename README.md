@@ -51,7 +51,10 @@ If Excel has opened `journal.xlsx`, close the file and press **Enter** to retry.
 
 ## Input Behavior
 
-- Empty input is rejected and requested again.
+- Last name and first name must contain only letters, spaces, hyphens, and apostrophes.
+- Names cannot be empty or longer than 100 characters.
+- Digits and symbols are rejected, and the field is requested again.
+- Examples: `Smith`, `O'Connor`, `Иванов`, `Jean-Luc`.
 - Backspace removes the last entered character.
 - **ESC** exits at the beginning of either input field.
 - Ticket numbers are in the range **1–20**.
